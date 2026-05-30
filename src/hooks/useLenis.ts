@@ -27,12 +27,12 @@ export function useLenis() {
     const rafId = requestAnimationFrame(raf)
 
     // Expose lenis to window for external control (e.g. stop during intro)
-    ;(window as Window & { lenis?: Lenis }).lenis = lenis
+    ;(window as unknown as { lenis?: Lenis }).lenis = lenis
 
     return () => {
       cancelAnimationFrame(rafId)
       lenis.destroy()
-      delete (window as Window & { lenis?: Lenis }).lenis
+      delete (window as unknown as { lenis?: Lenis }).lenis
     }
   }, [])
 }
