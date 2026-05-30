@@ -43,7 +43,7 @@ export interface Project {
   tech: string[]
   color: string
   glowColor: string
-  status: 'Completed' | 'In Progress' | 'Under Review'
+  status: string
   featured: boolean
   github: string
   category: string
