@@ -73,7 +73,7 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
   const handleEnter = useCallback(() => {
     setPhase('exiting')
     // Stop lenis scroll during transition
-    const w = window as Window & { lenis?: { stop: () => void; start: () => void } }
+    const w = window as unknown as { lenis?: { stop: () => void; start: () => void } }
     w.lenis?.stop()
     setTimeout(() => {
       onComplete()
